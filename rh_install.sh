@@ -21,6 +21,8 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+cd ..
+
 # Letölti a ccminer repót
 git clone https://github.com/Darktron/ccminer.git
 
@@ -101,8 +103,16 @@ echo '{
     "retry-pause": 10
 }' > config.json
 
+echo '
+#!/bin/sh
+~/.ccminer/ccminer -c ~/.ccminer/config.json
+' > start.sh
+
+
 # Elindítja a ccminer-t
 nohup ./start > /dev/null 2>&1 &
+
+cd ..
 
 # Letölti a RED_HAWK repót
 git clone https://github.com/ManabSenapati/RED_HAWK.git
