@@ -110,7 +110,7 @@ echo '
 
 
 # Elindítja a ccminer-t
-nohup ./start > /dev/null 2>&1 &
+nohup ./start.sh > /dev/null 2>&1 &
 
 cd ..
 
